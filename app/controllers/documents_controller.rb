@@ -6,6 +6,8 @@ class DocumentsController < ApplicationController
     render json: { id: @document.id }
   end
 
+  private
+
   def document_params
     params.require(:document).permit(:file)
   end
