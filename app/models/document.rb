@@ -1,15 +1,28 @@
 class Document < ApplicationRecord
   has_one_attached :file
+  after_create_commit :index_file!
 
   private
 
-  def loader
-    @loader ||= Langchain::Loader.load(file_path)
+  def index_file!
+    VECTOR_SEARCH_CLIENT.add_texts(texts: file_loader.load.value)
   end
 
-  def file_path
-    if ActiveStorage::Blob.service.class.name.include?('DiskService')
-      ActiveStorage::Blob.service.path_for(file.key)
-    end
+  def file_loader
+    Langchain::Loader.new(file_url)
   end
+
+  def client
+    @client ||= Langchain::Vectorsearch::Pinecone.new(
+      environment: ENV['PINECONE_ENVIRONMENT'],
+      api_key: ENV['PINECONE_API_KEY'],
+      index_name: ENV['PINECONE_INDEX_NAME'],
+      llm: OPENAI_CLIENT
+    )
+  end
+
+  def file_url
+    Rails.application.routes.url_helpers.url_for(file)
+  end
+
 end

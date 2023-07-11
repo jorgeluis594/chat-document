@@ -76,3 +76,5 @@ gem "langchainrb", "~> 0.6.5"
 gem "ruby-openai", "~> 4.2"
 
 gem "pinecone", "~> 0.1.71"
+
+gem "pdf-reader", "~> 2.11"

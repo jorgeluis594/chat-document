@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Ascii85 (1.1.0)
     actioncable (7.0.6)
       actionpack (= 7.0.6)
       activesupport (= 7.0.6)
@@ -68,6 +69,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    afm (0.2.2)
     baran (0.1.7)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -135,6 +137,7 @@ GEM
     faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hashery (2.1.2)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -185,6 +188,12 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
+    pdf-reader (2.11.0)
+      Ascii85 (~> 1.0)
+      afm (~> 0.2.1)
+      hashery (~> 2.0)
+      ruby-rc4
+      ttfunk
     pinecone (0.1.71)
       dry-struct (~> 1.6.0)
       dry-validation (~> 1.10.0)
@@ -232,6 +241,7 @@ GEM
     ruby-openai (4.2.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
+    ruby-rc4 (0.1.5)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
@@ -251,6 +261,7 @@ GEM
     thor (1.2.2)
     tiktoken_ruby (0.0.5-x86_64-linux)
     timeout (0.4.0)
+    ttfunk (1.7.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -284,6 +295,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   langchainrb (~> 0.6.5)
+  pdf-reader (~> 2.11)
   pinecone (~> 0.1.71)
   puma (~> 5.0)
   rails (~> 7.0.6)
