@@ -135,6 +135,8 @@ GEM
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
+    friendly_id (5.5.0)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashery (2.1.2)
@@ -292,6 +294,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  friendly_id (~> 5.5)
   importmap-rails
   jbuilder
   langchainrb (~> 0.6.5)

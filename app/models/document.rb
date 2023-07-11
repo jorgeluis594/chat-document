@@ -1,6 +1,12 @@
 class Document < ApplicationRecord
+  extend FriendlyId
+  friendly_id :file, use: :slugged
+
   has_one_attached :file
   after_create_commit :index_file!
+
+  validates :file, attached: true, content_type: %w[application/pdf]
+
 
   private
 
