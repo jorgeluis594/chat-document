@@ -14,6 +14,10 @@ class Document < ApplicationRecord
     end
   end
 
+  def ask(question)
+    VECTOR_SEARCH_CLIENT.ask(question: question, namespace: slug)
+  end
+
   private
 
   def file_name
