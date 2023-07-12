@@ -8,14 +8,20 @@ class Document < ApplicationRecord
   validate { errors.add(:file, 'must be present') unless file.attached? }
   validate { errors.add(:file, 'must be a pdf') unless file.content_type == 'application/pdf' }
 
+  def index_file
+    if VECTOR_SEARCH_CLIENT.add_texts(texts: chunks, namespace: slug)
+      update(indexed: true)
+    end
+  end
+
   private
 
   def file_name
     file.filename.to_s
   end
 
-  def index_file!
-    VECTOR_SEARCH_CLIENT.add_texts(texts: file_loader.chunks(chunk_size: 500, chunk_overlap: 50), namespace: slug)
+  def chunks
+    file_loader.chunks(chunk_size: 500, chunk_overlap: 50).map { |chunk_data| chunk_data[:text] }
   end
 
   def file_loader
