@@ -66,9 +66,12 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "factory_bot_rails", "~> 6.2"
+  gem 'database_cleaner-active_record'
 end
 
 gem "langchainrb", "~> 0.6.5"
