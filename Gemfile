@@ -83,3 +83,7 @@ gem "pinecone", "~> 0.1.71"
 gem "pdf-reader", "~> 2.11"
 
 gem "friendly_id", "~> 5.5"
+
+gem 'oauth2'
+gem 'slack-ruby-client'
+gem 'omniauth-slack'
