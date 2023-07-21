@@ -90,4 +90,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.hosts << ENV['DEV_HOST']
 end
+
+Rails.application.config.hosts << "3a59-38-25-25-140.ngrok-free.app"

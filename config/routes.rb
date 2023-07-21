@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :documents, only: [:create]
+
+  get '/auth/slack/callback', to: 'slack_sessions#create'
 end
